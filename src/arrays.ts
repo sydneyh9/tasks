@@ -30,7 +30,7 @@ export function bookEndList(numbers: number[]): number[] {
             numbers.indexOf() === -9
     );
     const last = numbers[numbers.length - 1];
-    let newArray: number[] = [];
+    const newArray = [];
     const arrayFirst = [...newArray];
     arrayFirst.splice(0, 0, first);
     arrayFirst.splice(1, 0, last);
@@ -115,8 +115,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
     const arrays = arrayed.map((message: string): string =>
         isExclamation(message) ? message === message.toUpperCase() : message
     );
-    const newArray = [...arrays];
-    return newArray;
+    return arrays;
 };
 
 /**
