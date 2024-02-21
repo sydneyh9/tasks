@@ -11,7 +11,8 @@ Browserslist: caniuse-lite is outdated. Please run:
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-PASS src/App.test.tsx
+PASS src/functions.test.ts
+PASS src/text.test.tsx
   ● Console
 
     console.log
@@ -19,7 +20,7 @@ PASS src/App.test.tsx
 
       at Object.<anonymous> (src/App.tsx:9:9)
 
-PASS src/text.test.tsx
+PASS src/App.test.tsx
   ● Console
 
     console.log
@@ -35,15 +36,16 @@ PASS src/HtmlCss.test.tsx
 
       at Object.<anonymous> (src/App.tsx:9:9)
 
-----------|---------|----------|---------|---------|-------------------
-File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------|---------|----------|---------|---------|-------------------
-All files |     100 |      100 |     100 |     100 |                   
- App.tsx  |     100 |      100 |     100 |     100 |                   
-----------|---------|----------|---------|---------|-------------------
+--------------|---------|----------|---------|---------|-------------------
+File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+--------------|---------|----------|---------|---------|-------------------
+All files     |   88.88 |    84.44 |     100 |   88.88 |                   
+ App.tsx      |     100 |      100 |     100 |     100 |                   
+ functions.ts |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
+--------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 3 passed, 3 total
-Tests:       9 passed, 9 total
+Test Suites: 4 passed, 4 total
+Tests:       14 passed, 14 total
 Snapshots:   0 total
-Time:        2.603 s
+Time:        2.981 s
 Ran all test suites.
