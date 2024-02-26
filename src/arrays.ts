@@ -8,31 +8,10 @@ export function bookEndList(numbers: number[]): number[] {
     if (numbers.length === 0) {
         return [];
     }
-    const first = numbers.find(
-        (number: number): boolean =>
-            numbers.indexOf() === 1 ||
-            numbers.indexOf() === 2 ||
-            numbers.indexOf() === 3 ||
-            numbers.indexOf() === 4 ||
-            numbers.indexOf() === 5 ||
-            numbers.indexOf() === 6 ||
-            numbers.indexOf() === 7 ||
-            numbers.indexOf() === 8 ||
-            numbers.indexOf() === 9 ||
-            numbers.indexOf() === -1 ||
-            numbers.indexOf() === -2 ||
-            numbers.indexOf() === -3 ||
-            numbers.indexOf() === -4 ||
-            numbers.indexOf() === -5 ||
-            numbers.indexOf() === -6 ||
-            numbers.indexOf() === -7 ||
-            numbers.indexOf() === -8 ||
-            numbers.indexOf() === -9
-    );
     const last = numbers[numbers.length - 1];
     const newArray = [];
     const arrayFirst = [...newArray];
-    arrayFirst.splice(0, 0, first);
+    arrayFirst.splice(0, 0, numbers[0]);
     arrayFirst.splice(1, 0, last);
     return arrayFirst;
 }
@@ -174,5 +153,5 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    return values;
 }
