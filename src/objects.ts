@@ -10,7 +10,17 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    const blankQuestion = {
+        body: "",
+        expected: "",
+        id: id,
+        name: name,
+        options: [],
+        points: 1,
+        published: false,
+        type: type
+    };
+    return blankQuestion;
 }
 
 /**
@@ -21,7 +31,11 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    const isValid = (answer: string): boolean =>
+        answer.trimEnd().trimStart().toLowerCase() ===
+        question.expected.trimEnd().trimStart().toLowerCase();
+    const result = isValid(answer);
+    return result;
 }
 
 /**
@@ -31,7 +45,20 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    let validAnswer = true;
+    if (question.type === "short_answer_question") {
+        validAnswer = true;
+    } else if (question.type === "multiple_choice_question") {
+        const lookupOption: Record<string, []> = Object.fromEntries(
+            question.options
+        );
+        if (answer === lookupOption[answer]) {
+            validAnswer = true;
+        } else {
+            validAnswer = false;
+        }
+    }
+    return validAnswer;
 }
 
 /**
@@ -41,7 +68,85 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    let short = "";
+    if (question.name.length >= 10) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4] +
+            question.name[5] +
+            question.name[6] +
+            question.name[7] +
+            question.name[8] +
+            question.name[9];
+    } else if (question.name.length === 9) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4] +
+            question.name[5] +
+            question.name[6] +
+            question.name[7] +
+            question.name[8];
+    } else if (question.name.length === 8) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4] +
+            question.name[5] +
+            question.name[6] +
+            question.name[7];
+    } else if (question.name.length === 7) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4] +
+            question.name[5] +
+            question.name[6];
+    } else if (question.name.length === 6) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4] +
+            question.name[5];
+    } else if (question.name.length === 5) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3] +
+            question.name[4];
+    } else if (question.name.length === 4) {
+        short =
+            "" +
+            question.name[0] +
+            question.name[1] +
+            question.name[2] +
+            question.name[3];
+    } else if (question.name.length === 3) {
+        short = "" + question.name[0] + question.name[1] + question.name[2];
+    } else if (question.name.length === 2) {
+        short = "" + question.name[0] + question.name[1];
+    } else {
+        short = question.name[0];
+    }
+    return "" + question.id + ": " + short;
 }
 
 /**
@@ -62,7 +167,8 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    const newQuestion = { ...question };
+    return newQuestion;
 }
 
 /**
@@ -70,7 +176,8 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    return question;
+    const newQuestion = { ...question, name: newName };
+    return newQuestion;
 }
 
 /**
@@ -79,7 +186,13 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
-    return question;
+    let newQuestion = { ...question };
+    if (question.published === true) {
+        newQuestion = { ...question, published: false };
+    } else {
+        newQuestion = { ...question, published: true };
+    }
+    return newQuestion;
 }
 
 /**
@@ -89,7 +202,14 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
-    return oldQuestion;
+    const newName = "Copy of " + oldQuestion.name;
+    const newQuestion = {
+        ...oldQuestion,
+        name: newName,
+        published: false,
+        id: id
+    };
+    return newQuestion;
 }
 
 /**
@@ -100,7 +220,11 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const newQuestion = {
+        ...question,
+        options: [...question.options, newOption]
+    };
+    return newQuestion;
 }
 
 /**
@@ -117,5 +241,15 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion = {
+        ...{ points },
+        body: contentQuestion.body,
+        type: contentQuestion.type,
+        options: contentQuestion.options,
+        expected: contentQuestion.expected,
+        published: false,
+        id: id,
+        name: name
+    };
+    return newQuestion;
 }
