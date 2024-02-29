@@ -146,27 +146,36 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
+    //check if there are any negatives
     const anyNegatives = values.some((value: number): boolean => value < 0);
+    //create new copy list of values
     const newList = [...values];
+    //check if there are any negatives, if true proceed
     if (anyNegatives === true) {
+        //find the index of the first negative
         const firstNegative = values.findIndex(
             (value: number): boolean => value < 0
         );
-        const positiveList = [...values];
-        const isAfterNegative = (value: number): boolean =>
-            values[value] > firstNegative;
-        const filterList = positiveList.filter(isAfterNegative);
-        const sum = filterList.reduce(
+        //create new copy list of values
+        const positiveList = values.slice(0, firstNegative);
+        //check if the value is after the negative
+        //if so, then delete those values from the positiveList values
+        //sum up the positives that come before the negative values in the positiveList
+        const sum = positiveList.reduce(
             (currentTotal: number, value: number) => currentTotal + value,
             0
         );
+        //console.log(filterNegative);
+        //now insert this sum after the negative in the values copy list
         newList.splice(firstNegative + 1, 0, sum);
+        return newList;
     } else if (anyNegatives === false) {
         const sum = values.reduce(
             (currentTotal: number, value: number) => currentTotal + value,
             0
         );
         newList.splice(newList.length, 0, sum);
+        return newList;
     }
     return newList;
 }
