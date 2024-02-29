@@ -8,31 +8,10 @@ export function bookEndList(numbers: number[]): number[] {
     if (numbers.length === 0) {
         return [];
     }
-    const first = numbers.find(
-        (number: number): boolean =>
-            numbers.indexOf() === 1 ||
-            numbers.indexOf() === 2 ||
-            numbers.indexOf() === 3 ||
-            numbers.indexOf() === 4 ||
-            numbers.indexOf() === 5 ||
-            numbers.indexOf() === 6 ||
-            numbers.indexOf() === 7 ||
-            numbers.indexOf() === 8 ||
-            numbers.indexOf() === 9 ||
-            numbers.indexOf() === -1 ||
-            numbers.indexOf() === -2 ||
-            numbers.indexOf() === -3 ||
-            numbers.indexOf() === -4 ||
-            numbers.indexOf() === -5 ||
-            numbers.indexOf() === -6 ||
-            numbers.indexOf() === -7 ||
-            numbers.indexOf() === -8 ||
-            numbers.indexOf() === -9
-    );
     const last = numbers[numbers.length - 1];
-    const newArray = [];
+    const newArray: number[] = [];
     const arrayFirst = [...newArray];
-    arrayFirst.splice(0, 0, first);
+    arrayFirst.splice(0, 0, numbers[0]);
     arrayFirst.splice(1, 0, last);
     return arrayFirst;
 }
@@ -51,7 +30,7 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    const isValidNumber = (number: number): boolean =>
+    /*const isValidNumber = (number: string): boolean =>
         number.charAt(0) !== "1" &&
         number.charAt(0) !== "2" &&
         number.charAt(0) !== "3" &&
@@ -63,12 +42,16 @@ export function stringsToIntegers(numbers: string[]): number[] {
         number.charAt(0) !== "9" &&
         number.charAt(0) !== "-";
     const stringSort = numbers.map((number: string): string =>
-        isValidNumber(number) ? number === 0 : number
+        isValidNumber(number) ? (number = "0") : number
     );
     const stringInteger = stringSort.map((number: string): string =>
         Number(number)
-    );
-    return stringInteger;
+    );*/
+    const stringSort = numbers.map((number: string): number => {
+        const value = parseInt(number);
+        return isNaN(value) ? 0 : value;
+    });
+    return stringSort;
 }
 
 /**
@@ -79,25 +62,14 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    const dollarSort = amounts.map((amount: string): string =>
+    const dollar = amounts.map((amount: string): string =>
         amount.charAt(0) === "$" ? amount.replace("$", "") : amount
     );
-    const isValidNumber = (amount: number): boolean =>
-        amount.charAt(0) !== "1" &&
-        amount.charAt(0) !== "2" &&
-        amount.charAt(0) !== "3" &&
-        amount.charAt(0) !== "4" &&
-        amount.charAt(0) !== "5" &&
-        amount.charAt(0) !== "6" &&
-        amount.charAt(0) !== "7" &&
-        amount.charAt(0) !== "8" &&
-        amount.charAt(0) !== "9";
-    const numberSort = dollarSort.map((amount: string): string =>
-        isValidNumber(amount) ? amount === 0 : amount
-    );
-    const stringToDollar = numberSort.map((amount: string): string =>
-        Number(amount)
-    );
+    const stringToDollar = dollar.map((amount: string): number => {
+        const value = parseInt(amount);
+        return isNaN(value) ? 0 : value;
+    });
+    console.log(stringToDollar);
     return stringToDollar;
 };
 
@@ -107,15 +79,15 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    const isQuestion = (message: string): boolean =>
-        message.charAt(message.length - 1) === "?";
-    const arrayed = messages.filter(isQuestion);
     const isExclamation = (message: string): boolean =>
-        messages.charAt(message.length - 1) === "!";
-    const arrays = arrayed.map((message: string): string =>
-        isExclamation(message) ? message === message.toUpperCase() : message
+        message.charAt(message.length - 1) === "!";
+    const arrays = messages.map((message: string): string =>
+        isExclamation(message) ? message.toUpperCase() : message
     );
-    return arrays;
+    const isQuestionMark = (message: string): boolean =>
+        message.charAt(message.length - 1) !== "?";
+    const result = arrays.filter(isQuestionMark);
+    return result;
 };
 
 /**
@@ -174,5 +146,27 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const anyNegatives = values.some((value: number): boolean => value < 0);
+    const newList = [...values];
+    if (anyNegatives === true) {
+        const firstNegative = values.findIndex(
+            (value: number): boolean => value < 0
+        );
+        const positiveList = [...values];
+        const isAfterNegative = (value: number): boolean =>
+            values[value] > firstNegative;
+        const filterList = positiveList.filter(isAfterNegative);
+        const sum = filterList.reduce(
+            (currentTotal: number, value: number) => currentTotal + value,
+            0
+        );
+        newList.splice(firstNegative + 1, 0, sum);
+    } else if (anyNegatives === false) {
+        const sum = values.reduce(
+            (currentTotal: number, value: number) => currentTotal + value,
+            0
+        );
+        newList.splice(newList.length, 0, sum);
+    }
+    return newList;
 }
