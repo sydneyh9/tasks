@@ -46,13 +46,15 @@ export function isCorrect(question: Question, answer: string): boolean {
  */
 export function isValid(question: Question, answer: string): boolean {
     let validAnswer = true;
+    //if it's a short answer question, any answer is valid, return true
     if (question.type === "short_answer_question") {
         validAnswer = true;
     } else if (question.type === "multiple_choice_question") {
-        const lookupOption: Record<string, []> = Object.fromEntries(
-            question.options
-        );
-        if (answer === lookupOption[answer]) {
+        if (
+            answer === question.options[0] ||
+            answer === question.options[1] ||
+            answer === question.options[2]
+        ) {
             validAnswer = true;
         } else {
             validAnswer = false;
@@ -167,8 +169,24 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    const newQuestion = { ...question };
-    return newQuestion;
+    let newString = "# " + question.name + "\n" + question.body;
+    if (question.type === "multiple_choice_question") {
+        newString =
+            "# " +
+            question.name +
+            "\n" +
+            question.body +
+            "\n" +
+            "- " +
+            question.options[0] +
+            "\n" +
+            "- " +
+            question.options[1] +
+            "\n" +
+            "- " +
+            question.options[2];
+    }
+    return newString;
 }
 
 /**
