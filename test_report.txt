@@ -11,7 +11,59 @@ Browserslist: caniuse-lite is outdated. Please run:
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+PASS src/objects.test.ts
+PASS src/arrays.test.ts
+  ● Console
+
+    console.log
+      [ 1, 2, 3 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 100, 200, 300, 400 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 5 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 0 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 100, 200, 300, 400 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      []
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 100, 0, 7, 233, 0, 0 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
+    console.log
+      [ 0, 0, 0 ]
+
+      at removeDollars (src/arrays.ts:72:13)
+
 PASS src/functions.test.ts
+PASS src/HtmlCss.test.tsx
+  ● Console
+
+    console.log
+      anothermemecat.jpeg
+
+      at Object.<anonymous> (src/App.tsx:9:9)
+
 PASS src/text.test.tsx
   ● Console
 
@@ -28,24 +80,21 @@ PASS src/App.test.tsx
 
       at Object.<anonymous> (src/App.tsx:9:9)
 
-PASS src/HtmlCss.test.tsx
-  ● Console
+----------------|---------|----------|---------|---------|-------------------
+File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------|---------|----------|---------|---------|-------------------
+All files       |   90.41 |     80.8 |     100 |    90.2 |                   
+ src            |   90.41 |     80.8 |     100 |    90.2 |                   
+  App.tsx       |     100 |      100 |     100 |     100 |                   
+  arrays.ts     |   98.48 |    95.65 |     100 |   98.41 | 180               
+  functions.ts  |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
+  objects.ts    |   81.13 |    64.51 |     100 |   81.13 | 88,129-149        
+ src/interfaces |       0 |        0 |       0 |       0 |                   
+  question.ts   |       0 |        0 |       0 |       0 |                   
+----------------|---------|----------|---------|---------|-------------------
 
-    console.log
-      anothermemecat.jpeg
-
-      at Object.<anonymous> (src/App.tsx:9:9)
-
---------------|---------|----------|---------|---------|-------------------
-File          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------|---------|----------|---------|---------|-------------------
-All files     |   88.88 |    84.44 |     100 |   88.88 |                   
- App.tsx      |     100 |      100 |     100 |     100 |                   
- functions.ts |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
---------------|---------|----------|---------|---------|-------------------
-
-Test Suites: 4 passed, 4 total
-Tests:       14 passed, 14 total
+Test Suites: 6 passed, 6 total
+Tests:       33 passed, 33 total
 Snapshots:   0 total
-Time:        2.981 s
+Time:        3.789 s
 Ran all test suites.
