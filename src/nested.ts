@@ -63,20 +63,16 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    let questionFound = null;
+    //let questionFound = null;
     const findId = (question: Question): boolean => question.id === id;
     const findQuestion = questions.find(
         (question: Question): boolean => findId(question) === true
     );
-    const checkIfFound = questions.some(
-        (question: Question): boolean => findId(question) === true
-    );
-    if (checkIfFound === false) {
-        questionFound = null;
+    if (findQuestion === undefined) {
+        return null;
     } else {
-        questionFound = findQuestion;
+        return findQuestion;
     }
-    return questionFound;
 }
 
 /**
@@ -412,6 +408,9 @@ export function duplicateQuestionInArray(
     const findElement = newCopy.find(
         (question: Question): boolean => findId(question) === true
     );
+    if (findElement === undefined) {
+        return newCopy;
+    }
     const element = findElement;
     const duplicate = duplicateQuestion(newId, element);
     newCopy.splice(1 + questionIndex, 0, duplicate);

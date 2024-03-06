@@ -69,7 +69,6 @@ export const removeDollars = (amounts: string[]): number[] => {
         const value = parseInt(amount);
         return isNaN(value) ? 0 : value;
     });
-    console.log(stringToDollar);
     return stringToDollar;
 };
 

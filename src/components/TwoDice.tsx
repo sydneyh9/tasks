@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
@@ -12,5 +13,37 @@ export function d6(): number {
 }
 
 export function TwoDice(): JSX.Element {
-    return <div>Two Dice</div>;
+    const [valueLeft, setValueLeft] = useState<number>(4);
+    const [valueRight, setValueRight] = useState<number>(1);
+    function changeValueLeft(): void {
+        setValueLeft(d6());
+    }
+    function changeValueRight(): void {
+        setValueRight(d6());
+    }
+    return (
+        <div>
+            {/*Result = {answer}*/}
+            <br></br>
+            <span data-testid="left-die">{valueLeft}</span>{" "}
+            <span data-testid="right-die">{valueRight}</span>{" "}
+            <span>
+                <Button onClick={changeValueLeft}>Roll Left</Button>
+            </span>
+            <span>
+                <Button onClick={changeValueRight}>Roll Right</Button>
+            </span>
+            <div>
+                Two Dice
+                <br></br>
+                {valueLeft === 1 && valueRight === 1 ? (
+                    <span>Lose</span>
+                ) : valueLeft === valueRight ? (
+                    <span>Win</span>
+                ) : (
+                    <span>None</span>
+                )}
+            </div>
+        </div>
+    );
 }
