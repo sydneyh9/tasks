@@ -13,48 +13,9 @@ Browserslist: caniuse-lite is outdated. Please run:
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/objects.test.ts
 PASS src/arrays.test.ts
-  ● Console
-
-    console.log
-      [ 1, 2, 3 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 100, 200, 300, 400 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 5 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 0 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 100, 200, 300, 400 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      []
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 100, 0, 7, 233, 0, 0 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
-    console.log
-      [ 0, 0, 0 ]
-
-      at removeDollars (src/arrays.ts:72:13)
-
+PASS src/nested.test.ts
+PASS src/components/StartAttempt.test.tsx
+PASS src/components/TwoDice.test.tsx
 PASS src/functions.test.ts
 PASS src/HtmlCss.test.tsx
   ● Console
@@ -62,39 +23,52 @@ PASS src/HtmlCss.test.tsx
     console.log
       anothermemecat.jpeg
 
-      at Object.<anonymous> (src/App.tsx:9:9)
+      at Object.<anonymous> (src/App.tsx:15:9)
 
+PASS src/components/ChangeType.test.tsx
+PASS src/components/CycleHoliday.test.tsx
+PASS src/components/Counter.test.tsx
 PASS src/text.test.tsx
   ● Console
 
     console.log
       anothermemecat.jpeg
 
-      at Object.<anonymous> (src/App.tsx:9:9)
+      at Object.<anonymous> (src/App.tsx:15:9)
 
+PASS src/components/RevealAnswer.test.tsx
 PASS src/App.test.tsx
   ● Console
 
     console.log
       anothermemecat.jpeg
 
-      at Object.<anonymous> (src/App.tsx:9:9)
+      at Object.<anonymous> (src/App.tsx:15:9)
 
-----------------|---------|----------|---------|---------|-------------------
-File            | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-----------------|---------|----------|---------|---------|-------------------
-All files       |   90.41 |     80.8 |     100 |    90.2 |                   
- src            |   90.41 |     80.8 |     100 |    90.2 |                   
-  App.tsx       |     100 |      100 |     100 |     100 |                   
-  arrays.ts     |   98.48 |    95.65 |     100 |   98.41 | 180               
-  functions.ts  |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
-  objects.ts    |   81.13 |    64.51 |     100 |   81.13 | 88,129-149        
- src/interfaces |       0 |        0 |       0 |       0 |                   
-  question.ts   |       0 |        0 |       0 |       0 |                   
-----------------|---------|----------|---------|---------|-------------------
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   94.03 |    85.45 |     100 |   93.84 |                   
+ src               |   93.41 |     82.7 |     100 |   93.17 |                   
+  App.tsx          |     100 |      100 |     100 |     100 |                   
+  arrays.ts        |   98.46 |    95.65 |     100 |   98.38 | 179               
+  functions.ts     |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
+  nested.ts        |   97.34 |    88.23 |     100 |   97.19 | 341,387,412       
+  objects.ts       |   81.13 |    64.51 |     100 |   81.13 | 88,129-149        
+ src/components    |     100 |    96.87 |     100 |     100 |                   
+  ChangeType.tsx   |     100 |    83.33 |     100 |     100 | 14                
+  Counter.tsx      |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx |     100 |      100 |     100 |     100 |                   
+  RevealAnswer.tsx |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx |     100 |      100 |     100 |     100 |                   
+  TwoDice.tsx      |     100 |      100 |     100 |     100 |                   
+ src/interfaces    |       0 |        0 |       0 |       0 |                   
+  answer.ts        |       0 |        0 |       0 |       0 |                   
+  question.ts      |       0 |        0 |       0 |       0 |                   
+-------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 6 passed, 6 total
-Tests:       33 passed, 33 total
+Test Suites: 13 passed, 13 total
+Tests:       101 passed, 101 total
 Snapshots:   0 total
-Time:        3.789 s
+Time:        5.823 s
 Ran all test suites.
