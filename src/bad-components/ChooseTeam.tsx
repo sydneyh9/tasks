@@ -13,19 +13,20 @@ const PEOPLE = [
 export function ChooseTeam(): JSX.Element {
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
+    const [newMember, setMember] = useState<string>(PEOPLE[0]);
+    const [memberIndex, setIndex] = useState<number>(0);
 
     function chooseMember() {
-        /*
-        if (!team.includes(newMember)) {
-            team.push(newMember);
+        if (!team.includes(allOptions[memberIndex])) {
+            const newTeam = [...team, newMember];
+            setTeam(newTeam);
+        } else {
+            setIndex(memberIndex + 1);
         }
-        */
     }
 
     function clearTeam() {
-        /*
-        team = [];
-        */
+        setTeam([]);
     }
 
     return (
