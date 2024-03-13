@@ -11,17 +11,13 @@ const PEOPLE = [
 ];
 
 export function ChooseTeam(): JSX.Element {
-    const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
+    const [allOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
-    const [newMember, setMember] = useState<string>(PEOPLE[0]);
-    const [memberIndex, setIndex] = useState<number>(0);
 
-    function chooseMember() {
-        if (!team.includes(allOptions[memberIndex])) {
-            const newTeam = [...team, newMember];
+    function chooseMember(option: string) {
+        if (!team.includes(option)) {
+            const newTeam = [...team, option];
             setTeam(newTeam);
-        } else {
-            setIndex(memberIndex + 1);
         }
     }
 
@@ -37,7 +33,10 @@ export function ChooseTeam(): JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button onClick={chooseMember} size="sm">
+                            <Button
+                                onClick={() => chooseMember(option)}
+                                size="sm"
+                            >
                                 {option}
                             </Button>
                         </div>
