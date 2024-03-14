@@ -15,60 +15,115 @@ PASS src/objects.test.ts
 PASS src/arrays.test.ts
 PASS src/nested.test.ts
 PASS src/components/StartAttempt.test.tsx
+PASS src/form-components/MultipleChoiceQuestion.test.tsx
 PASS src/components/TwoDice.test.tsx
+PASS src/bad-components/DoubleHalf.test.tsx
+PASS src/bad-components/ChooseTeam.test.tsx
 PASS src/functions.test.ts
-PASS src/HtmlCss.test.tsx
-  ● Console
-
-    console.log
-      anothermemecat.jpeg
-
-      at Object.<anonymous> (src/App.tsx:15:9)
-
 PASS src/components/ChangeType.test.tsx
+PASS src/form-components/CheckAnswer.test.tsx
+PASS src/form-components/EditMode.test.tsx
 PASS src/components/CycleHoliday.test.tsx
-PASS src/components/Counter.test.tsx
-PASS src/text.test.tsx
+PASS src/form-components/GiveAttempts.test.tsx
+PASS src/form-components/ChangeColor.test.tsx
   ● Console
 
-    console.log
-      anothermemecat.jpeg
+    console.error
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the render method of `ChangeColor`. See https://reactjs.org/link/warning-keys for more information.
+          at ChangeColor (/home/runner/work/tasks/tasks/src/form-components/ChangeColor.tsx:14:38)
 
-      at Object.<anonymous> (src/App.tsx:15:9)
+      18 |
+      19 |     return (
+    > 20 |         <div>
+         |         ^
+      21 |             <h3>Change Color</h3>
+      22 |             {COLORS.map((s: string) => (
+      23 |                 <>
 
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
+      at ChangeColor (src/form-components/ChangeColor.tsx:20:9)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
+
+PASS src/components/Counter.test.tsx
 PASS src/components/RevealAnswer.test.tsx
+PASS src/bad-components/ColoredBox.test.tsx
+PASS src/bad-components/ShoveBox.test.tsx
 PASS src/App.test.tsx
   ● Console
 
     console.log
       anothermemecat.jpeg
 
-      at Object.<anonymous> (src/App.tsx:15:9)
+      at Object.<anonymous> (src/App.tsx:24:9)
 
--------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------|---------|----------|---------|---------|-------------------
-All files          |   94.03 |    85.45 |     100 |   93.84 |                   
- src               |   93.41 |     82.7 |     100 |   93.17 |                   
-  App.tsx          |     100 |      100 |     100 |     100 |                   
-  arrays.ts        |   98.46 |    95.65 |     100 |   98.38 | 179               
-  functions.ts     |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
-  nested.ts        |   97.34 |    88.23 |     100 |   97.19 | 341,387,412       
-  objects.ts       |   81.13 |    64.51 |     100 |   81.13 | 88,129-149        
- src/components    |     100 |    96.87 |     100 |     100 |                   
-  ChangeType.tsx   |     100 |    83.33 |     100 |     100 | 14                
-  Counter.tsx      |     100 |      100 |     100 |     100 |                   
-  CycleHoliday.tsx |     100 |      100 |     100 |     100 |                   
-  RevealAnswer.tsx |     100 |      100 |     100 |     100 |                   
-  StartAttempt.tsx |     100 |      100 |     100 |     100 |                   
-  TwoDice.tsx      |     100 |      100 |     100 |     100 |                   
- src/interfaces    |       0 |        0 |       0 |       0 |                   
-  answer.ts        |       0 |        0 |       0 |       0 |                   
-  question.ts      |       0 |        0 |       0 |       0 |                   
--------------------|---------|----------|---------|---------|-------------------
+    console.error
+      Warning: Each child in a list should have a unique "key" prop.
+      
+      Check the render method of `ChangeColor`. See https://reactjs.org/link/warning-keys for more information.
+          at ChangeColor (/home/runner/work/tasks/tasks/src/form-components/ChangeColor.tsx:14:38)
+          at div
+          at App
 
-Test Suites: 13 passed, 13 total
-Tests:       101 passed, 101 total
+      18 |
+      19 |     return (
+    > 20 |         <div>
+         |         ^
+      21 |             <h3>Change Color</h3>
+      22 |             {COLORS.map((s: string) => (
+      23 |                 <>
+
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
+      at ChangeColor (src/form-components/ChangeColor.tsx:20:9)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
+
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |   94.37 |    86.03 |   99.29 |   94.22 |                   
+ src                         |   93.02 |     82.7 |   98.91 |   92.77 |                   
+  App.tsx                    |   66.66 |      100 |      50 |   66.66 | 46                
+  arrays.ts                  |   98.46 |    95.65 |     100 |   98.38 | 179               
+  functions.ts               |    87.5 |    84.44 |     100 |    87.5 | 23,27,29          
+  nested.ts                  |   97.34 |    88.23 |     100 |   97.19 | 341,387,412       
+  objects.ts                 |   81.13 |    64.51 |     100 |   81.13 | 88,129-149        
+ src/bad-components          |   96.29 |       50 |     100 |   96.29 |                   
+  ChooseTeam.tsx             |     100 |       50 |     100 |     100 | 18                
+  ColoredBox.tsx             |     100 |      100 |     100 |     100 |                   
+  DoubleHalf.tsx             |     100 |      100 |     100 |     100 |                   
+  DoubleHalfState.tsx        |       0 |      100 |     100 |       0 | 3                 
+  ShoveBox.tsx               |     100 |      100 |     100 |     100 |                   
+ src/components              |     100 |    96.87 |     100 |     100 |                   
+  ChangeType.tsx             |     100 |    83.33 |     100 |     100 | 14                
+  Counter.tsx                |     100 |      100 |     100 |     100 |                   
+  CycleHoliday.tsx           |     100 |      100 |     100 |     100 |                   
+  RevealAnswer.tsx           |     100 |      100 |     100 |     100 |                   
+  StartAttempt.tsx           |     100 |      100 |     100 |     100 |                   
+  TwoDice.tsx                |     100 |      100 |     100 |     100 |                   
+ src/form-components         |     100 |      100 |     100 |     100 |                   
+  ChangeColor.tsx            |     100 |      100 |     100 |     100 |                   
+  CheckAnswer.tsx            |     100 |      100 |     100 |     100 |                   
+  EditMode.tsx               |     100 |      100 |     100 |     100 |                   
+  GiveAttempts.tsx           |     100 |      100 |     100 |     100 |                   
+  MultipleChoiceQuestion.tsx |     100 |      100 |     100 |     100 |                   
+ src/interfaces              |       0 |        0 |       0 |       0 |                   
+  answer.ts                  |       0 |        0 |       0 |       0 |                   
+  question.ts                |       0 |        0 |       0 |       0 |                   
+-----------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 20 passed, 20 total
+Tests:       134 passed, 134 total
 Snapshots:   0 total
-Time:        5.823 s
+Time:        7.969 s
 Ran all test suites.
